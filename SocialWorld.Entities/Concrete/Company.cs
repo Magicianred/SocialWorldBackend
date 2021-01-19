@@ -11,6 +11,8 @@ namespace SocialWorld.Entities.Concrete
         public string Address { get; set; }
         public bool isActive { get; set; }
 
+        public int AppUserId { get; set; }
+        public AppUser AppUser { get; set; }
         public List<Job> Jobs { get; set; }
 
     }

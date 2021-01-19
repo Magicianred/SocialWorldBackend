@@ -8,11 +8,14 @@ namespace SocialWorld.Entities.Concrete
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public int TypeId { get; set; }
-        public bool isActive { get; set; }
+        public bool isActive { get; set; } = true;
 
         public int JobTypeId { get; set; }
         public JobType JobType { get; set; }
+
+        public int CompanyId { get; set; }
+        public Company Company { get; set; }
+
 
         public List<Applicant> Applicants { get; set; }
     }
