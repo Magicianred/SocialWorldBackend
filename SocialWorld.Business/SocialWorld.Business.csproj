@@ -13,8 +13,4 @@
     <ProjectReference Include="..\SocialWorld.DataAccess\SocialWorld.DataAccess.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Concrete\" />
-  </ItemGroup>
-
 </Project>
