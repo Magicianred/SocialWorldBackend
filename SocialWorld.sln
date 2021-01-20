@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SocialWorld.DataAccess", "S
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SocialWorld.Business", "SocialWorld.Business\SocialWorld.Business.csproj", "{62C9B59E-349E-4B4B-ABE8-6789B6E4A745}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SocialWorld.WebApi", "SocialWorld.WebApi\SocialWorld.WebApi.csproj", "{220A0F6F-D7BD-4A2C-AD2D-533D152E63C7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SocialWorld.WebApi", "SocialWorld.WebApi\SocialWorld.WebApi.csproj", "{322FFA02-2D9B-4B8A-AD68-5B378838FD95}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +29,10 @@ Global
 		{62C9B59E-349E-4B4B-ABE8-6789B6E4A745}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{62C9B59E-349E-4B4B-ABE8-6789B6E4A745}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{62C9B59E-349E-4B4B-ABE8-6789B6E4A745}.Release|Any CPU.Build.0 = Release|Any CPU
-		{220A0F6F-D7BD-4A2C-AD2D-533D152E63C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{220A0F6F-D7BD-4A2C-AD2D-533D152E63C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{220A0F6F-D7BD-4A2C-AD2D-533D152E63C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{220A0F6F-D7BD-4A2C-AD2D-533D152E63C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{322FFA02-2D9B-4B8A-AD68-5B378838FD95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{322FFA02-2D9B-4B8A-AD68-5B378838FD95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{322FFA02-2D9B-4B8A-AD68-5B378838FD95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{322FFA02-2D9B-4B8A-AD68-5B378838FD95}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace SocialWorld.DataAccess.Concrete.EntityFrameworkCore.Repositories
 {
-    class EfAppUserRepository : EfGenericRepository<AppUser>, IAppUserDal
+    public class EfAppUserRepository : EfGenericRepository<AppUser>, IAppUserDal
     {
         public async Task<List<AppRole>> GetRolesByEmail(string email)
         {
