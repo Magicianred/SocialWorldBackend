@@ -11,6 +11,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
 using SocialWorld.Business.Containers.MicrosoftIoC;
+using SocialWorld.Business.Interfaces;
 using SocialWorld.Business.StringInfo;
 using System;
 using System.Collections.Generic;
@@ -55,13 +56,14 @@ namespace SocialWorld.WebApi
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IAppUserService appUserService, IAppUserRoleService appUserRoleService, IAppRoleService appRoleService)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
 
+            JwtIdentityInitializer.Seed(appUserService, appUserRoleService, appRoleService).Wait();
 
             app.UseRouting();
             app.UseStaticFiles();

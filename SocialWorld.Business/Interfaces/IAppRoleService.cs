@@ -9,5 +9,6 @@ namespace SocialWorld.Business.Interfaces
 {
     public interface IAppRoleService : IGenericService<AppRole>
     {
+        Task<AppRole> FindByNameAsync(string name);
     }
 }

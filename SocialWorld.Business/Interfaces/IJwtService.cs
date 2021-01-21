@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SocialWorld.Business.Interfaces
 {
-    interface IJwtService
+    public interface IJwtService
     {
         JwtToken GenerateJwt(AppUser appUser, List<AppRole> roles);
     }

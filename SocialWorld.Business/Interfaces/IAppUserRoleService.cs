@@ -7,9 +7,7 @@ using System.Threading.Tasks;
 
 namespace SocialWorld.Business.Interfaces
 {
-    public interface IAppUserService : IGenericService<AppUser>
+    public interface IAppUserRoleService : IGenericService<AppUserRole>
     {
-        Task<AppUser> FindByEmail(string email);
-        Task<List<AppRole>> GetRolesByEmail(string email);
     }
 }

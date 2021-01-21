@@ -32,7 +32,7 @@ namespace SocialWorld.Business.Concrete
         {
             List<Claim> claims = new List<Claim>
             {
-                new Claim(ClaimTypes.Email,appUser.Email),
+                new Claim(ClaimTypes.Name,appUser.Email),
                 new Claim(ClaimTypes.NameIdentifier, appUser.Id.ToString())
             };
 

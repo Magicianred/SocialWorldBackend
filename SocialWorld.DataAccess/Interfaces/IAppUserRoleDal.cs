@@ -5,10 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SocialWorld.Business.Interfaces
+namespace SocialWorld.DataAccess.Interfaces
 {
-    public interface ICompanyService : IGenericService<Company>
+    public interface IAppUserRoleDal : IGenericDal<AppUserRole>
     {
-        Task<List<Company>> GetByAppUserIdAsync(int appUserId);
+
     }
 }

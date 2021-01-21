@@ -11,8 +11,22 @@ namespace SocialWorld.Business.Concrete
 {
     public class AppUserManager : GenericManager<AppUser>, IAppUserService
     {
-        public AppUserManager(IGenericDal<AppUser> genericDal) : base(genericDal)
+        private readonly IAppUserDal _appUserDal;
+        private readonly IGenericDal<AppUser> _genericDal;
+        public AppUserManager(IAppUserDal appUserDal, IGenericDal<AppUser> genericDal) : base(genericDal)
         {
+            _genericDal = genericDal;
+            _appUserDal = appUserDal;
+        }
+
+        public async Task<AppUser> FindByEmail(string email)
+        {
+            return await _genericDal.GetByFilter(I => I.Email == email);
+        }
+
+        public async Task<List<AppRole>> GetRolesByEmail(string email)
+        {
+            return await _appUserDal.GetRolesByEmail(email);
         }
     }
 }

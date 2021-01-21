@@ -30,6 +30,9 @@ namespace SocialWorld.Business.Containers.MicrosoftIoC
             services.AddScoped<IAppUserDal, EfAppUserRepository>();
             services.AddScoped<IAppUserService, AppUserManager>();
 
+            services.AddScoped<IAppUserRoleDal, EfAppUserRoleRepository>();
+            services.AddScoped<IAppUserRoleService, AppUserRoleManager>();
+
             services.AddScoped<IJobDal, EfJobRepository>();
             services.AddScoped<IJobService, JobManager>();
 

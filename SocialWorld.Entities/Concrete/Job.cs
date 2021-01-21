@@ -8,6 +8,7 @@ namespace SocialWorld.Entities.Concrete
     {
         public int Id { get; set; }
         public string Name { get; set; }
+        public DateTime LastEdit { get; set; } = DateTime.Now;
         public bool isActive { get; set; } = true;
 
         public int JobTypeId { get; set; }
