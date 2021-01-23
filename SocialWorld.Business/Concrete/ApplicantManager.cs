@@ -11,8 +11,16 @@ namespace SocialWorld.Business.Concrete
 {
     public class ApplicantManager : GenericManager<Applicant>, IApplicantService
     {
+        private readonly IGenericDal<Applicant> _genericDal;
         public ApplicantManager(IGenericDal<Applicant> genericDal) : base(genericDal)
         {
+            _genericDal = genericDal;
+        }
+
+
+        public async Task<List<Applicant>> GetAllApplicantsByJobId(int id)
+        {
+            return await _genericDal.GetAllByFilter(I => I.JobId == id);
         }
     }
 }

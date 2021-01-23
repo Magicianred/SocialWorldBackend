@@ -11,8 +11,15 @@ namespace SocialWorld.Business.Concrete
 {
     public class JobManager : GenericManager<Job>, IJobService
     {
+        private readonly IGenericDal<Job> _genericDal;
         public JobManager(IGenericDal<Job> genericDal) : base(genericDal)
         {
+            _genericDal = genericDal;
+        }
+
+        public async Task<List<Job>> GetAllActiveJobsAsync()
+        {
+            return await _genericDal.GetAllByFilter(I => I.isActive == true);
         }
     }
 }

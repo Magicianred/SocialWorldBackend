@@ -25,6 +25,22 @@ namespace SocialWorld.WebApi.Controllers
             _mapper = mapper;
         }
 
+        [HttpGet]
+        [Authorize(Roles = "Member")]
+        [ValidModel]
+        public async Task<IActionResult> GetAllJobsAsync()
+        {
+            return Ok(_mapper.Map<List<JobEditDto>>(await _jobService.GetAllActiveJobsAsync()));
+        }
+
+        [HttpGet("{id}")]
+        [Authorize(Roles ="Member")]
+        [ValidModel]
+        public async Task<IActionResult> GetJobById(int id)
+        {
+            return Ok(_mapper.Map<JobEditDto>(await _jobService.FindByIdAsync(id)));
+        }
+
         [HttpPost]
         [Authorize(Roles = "Member")]
         [ValidModel]

@@ -9,5 +9,6 @@ namespace SocialWorld.Business.Interfaces
 {
     public interface IJobService : IGenericService<Job>
     {
+        Task<List<Job>> GetAllActiveJobsAsync();
     }
 }
