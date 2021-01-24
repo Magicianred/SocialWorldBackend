@@ -30,7 +30,7 @@ namespace SocialWorld.WebApi.Controllers
         [ValidModel]
         public async Task<IActionResult> GetAllJobsAsync()
         {
-            return Ok(_mapper.Map<List<JobEditDto>>(await _jobService.GetAllActiveJobsAsync()));
+            return Ok(_mapper.Map<List<JobListDto>>(await _jobService.GetAllActiveJobsAsync()));
         }
 
         [HttpGet("{id}")]

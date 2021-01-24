@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using SocialWorld.Business.DTOs.AppUserDtos;
 using SocialWorld.Business.DTOs.CompanyDtos;
+using SocialWorld.Business.DTOs.JobDtos;
 using SocialWorld.Entities.Concrete;
 using System;
 using System.Collections.Generic;
@@ -27,6 +28,17 @@ namespace SocialWorld.WebApi.Mapping.AutoMapper
 
             CreateMap<CompanyEditDto, Company>();
             CreateMap<Company, CompanyEditDto>();
+            #endregion
+
+            #region Job
+            CreateMap<Job, JobAddDto>();
+            CreateMap<JobAddDto, Job>();
+
+            CreateMap<Job, JobListDto>();
+            CreateMap<JobListDto, Job>();
+
+            CreateMap<Job, JobEditDto>();
+            CreateMap<JobEditDto, Job>();
             #endregion
         }
     }
