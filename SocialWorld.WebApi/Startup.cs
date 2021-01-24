@@ -41,18 +41,20 @@ namespace SocialWorld.WebApi
                 opt.RequireHttpsMetadata = false;
                 opt.TokenValidationParameters = new TokenValidationParameters
                 {
-                    ValidIssuer=JwtInfo.Issuer,
-                    ValidAudience=JwtInfo.Audience,
-                    IssuerSigningKey= new SymmetricSecurityKey(Encoding.UTF8.GetBytes(JwtInfo.SecurityKey)),
-                    ValidateIssuerSigningKey=true,
-                    ValidateLifetime=true,
-                    ClockSkew=TimeSpan.Zero
+                    ValidIssuer = JwtInfo.Issuer,
+                    ValidAudience = JwtInfo.Audience,
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(JwtInfo.SecurityKey)),
+                    ValidateIssuerSigningKey = true,
+                    ValidateLifetime = true,
+                    ClockSkew = TimeSpan.Zero
                 };
             });
-            services.AddControllers().AddNewtonsoftJson(opt=>
+            services.AddControllers().AddNewtonsoftJson(opt =>
             {
                 opt.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
             }).AddFluentValidation();
+
+            services.AddCors();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -67,9 +69,17 @@ namespace SocialWorld.WebApi
 
             app.UseRouting();
             app.UseStaticFiles();
+
+            app.UseCors(x => x
+            .AllowAnyOrigin()
+            .AllowAnyHeader()
+            .AllowAnyMethod()
+            );
+
             app.UseAuthentication();
             app.UseAuthorization();
 
+            
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
