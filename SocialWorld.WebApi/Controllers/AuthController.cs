@@ -83,6 +83,7 @@ namespace SocialWorld.WebApi.Controllers
 
             AppUserDto appUserDto = new AppUserDto
             {
+                Id = user.Id,
                 Email = user.Email,
                 Name = user.Name,
                 Roles = roles.Select(I => I.Name).ToList()
