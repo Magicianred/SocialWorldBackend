@@ -33,7 +33,7 @@ namespace SocialWorld.WebApi.Controllers
         }
 
         [HttpGet("{id}")]
-        [Authorize(Roles = "Admin Member")]
+        [Authorize(Roles = "Admin,Member")]
         public async Task<IActionResult> GetById(int id)
         {
             return Ok(_mapper.Map<CompanyEditDto>(await _companyService.FindByIdAsync(id)));

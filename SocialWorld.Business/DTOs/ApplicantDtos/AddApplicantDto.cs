@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace SocialWorld.Business.DTOs.ApplicantDtos
 {
-    public class ApplicantListDto
+    public class AddApplicantDto
     {
-        public int Id { get; set; }
-        public int ApplicationDate { get; set; }
         public int UserId { get; set; }
         public int JobId { get; set; }
     }

@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using SocialWorld.Business.DTOs.ApplicantDtos;
 using SocialWorld.Business.Interfaces;
 using SocialWorld.Entities.Concrete;
+using SocialWorld.WebApi.CustomFilters;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,6 +30,16 @@ namespace SocialWorld.WebApi.Controllers
         public async Task<IActionResult> GetAllApplicantsByJobId(int id)
         {
             return Ok(_mapper.Map<ApplicantListDto>(await _applicantService.GetAllApplicantsByJobId(id)));
+        }
+
+        [HttpPost]
+        [Authorize(Roles ="Admin,Member")]
+        [ValidModel]
+        public async Task<IActionResult> ApplyJob(AddApplicantDto addApplicantDto)
+        {
+            await _applicantService.AddAsync(_mapper.Map<Applicant>(addApplicantDto));
+
+            return Ok(addApplicantDto);
         }
     }
 }
