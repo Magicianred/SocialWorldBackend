@@ -39,7 +39,15 @@ namespace SocialWorld.WebApi.Controllers
         {
             await _applicantService.AddAsync(_mapper.Map<Applicant>(addApplicantDto));
 
-            return Ok(addApplicantDto);
+            return Created("",addApplicantDto);
+        }
+
+        [HttpGet("[action]/{id}")]
+        [Authorize(Roles ="Admin,Member")]
+        [ValidModel]
+        public async Task<IActionResult> GetUserApplicants(int id)
+        {
+            return Ok(_mapper.Map<List<ApplicantListDto>>(await _applicantService.GetUserApplications(id)));
         }
     }
 }
