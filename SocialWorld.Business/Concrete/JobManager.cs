@@ -21,5 +21,10 @@ namespace SocialWorld.Business.Concrete
         {
             return await _genericDal.GetAllByFilter(I => I.isActive == true);
         }
+
+        public async Task<List<Job>> GetAllJobsByCompanyId(int id)
+        {
+            return await _genericDal.GetAllByFilter(I => I.isActive == true && I.CompanyId==id);
+        }
     }
 }

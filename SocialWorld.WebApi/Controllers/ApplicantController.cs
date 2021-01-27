@@ -29,7 +29,7 @@ namespace SocialWorld.WebApi.Controllers
         [Authorize(Roles ="Admin,Member")]
         public async Task<IActionResult> GetAllApplicantsByJobId(int id)
         {
-            return Ok(_mapper.Map<ApplicantListDto>(await _applicantService.GetAllApplicantsByJobId(id)));
+            return Ok(_mapper.Map<List<ApplicantListDto>>(await _applicantService.GetAllApplicantsByJobId(id)));
         }
 
         [HttpPost]

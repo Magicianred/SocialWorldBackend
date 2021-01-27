@@ -18,7 +18,11 @@ namespace SocialWorld.DataAccess.Concrete.EntityFrameworkCore.Mapping
 
             builder.Property(X => X.Name).HasMaxLength(100).IsRequired();
             builder.Property(X => X.Address).HasMaxLength(300).IsRequired();
-
+            builder.Property(x => x.PhoneNumber).HasMaxLength(13).IsRequired();
+            builder.Property(x => x.Explanation).HasMaxLength(300).IsRequired();
+            builder.Property(x => x.Email).HasMaxLength(100).IsRequired();
+            builder.Property(x => x.PhotoString).HasMaxLength(500);
+            
             builder.HasMany(I => I.Jobs).WithOne(X => X.Company).HasForeignKey(X => X.CompanyId).OnDelete(DeleteBehavior.NoAction);
         }
     }

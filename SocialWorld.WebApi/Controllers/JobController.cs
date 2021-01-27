@@ -41,6 +41,14 @@ namespace SocialWorld.WebApi.Controllers
             return Ok(_mapper.Map<JobEditDto>(await _jobService.FindByIdAsync(id)));
         }
 
+        [HttpGet("[action]/{id}")]
+        [Authorize(Roles ="Admin,Member")]
+        [ValidModel]
+        public async Task<IActionResult> GetJobsByCompanyId(int id)
+        {
+            return Ok(_mapper.Map<List<JobListDto>>(await _jobService.GetAllJobsByCompanyId(id)));
+        }
+
         [HttpPost]
         [Authorize(Roles = "Member")]
         [ValidModel]
@@ -65,6 +73,8 @@ namespace SocialWorld.WebApi.Controllers
             {
                 job.Name = jobEditDto.Name;
                 job.LastEdit = DateTime.Now;
+                job.PhotoString = jobEditDto.PhotoString;
+                job.Explanation = jobEditDto.Explanation;
 
                 await _jobService.UpdateAsync(job);
                 return Ok();

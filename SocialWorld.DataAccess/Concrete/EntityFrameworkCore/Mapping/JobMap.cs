@@ -18,6 +18,9 @@ namespace SocialWorld.DataAccess.Concrete.EntityFrameworkCore.Mapping
 
             builder.Property(X => X.Name).HasMaxLength(100).IsRequired();
 
+            builder.Property(x => x.Explanation).HasMaxLength(300).IsRequired();
+            builder.Property(x => x.PhotoString).HasMaxLength(500);
+
             builder.HasMany(X => X.Applicants).WithOne(X => X.Job).HasForeignKey(X => X.JobId).OnDelete(DeleteBehavior.NoAction);
         }
     }
