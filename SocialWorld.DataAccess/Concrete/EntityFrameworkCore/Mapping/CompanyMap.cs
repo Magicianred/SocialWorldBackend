@@ -23,7 +23,7 @@ namespace SocialWorld.DataAccess.Concrete.EntityFrameworkCore.Mapping
             builder.Property(x => x.Email).HasMaxLength(100).IsRequired();
             builder.Property(x => x.PhotoString).HasMaxLength(500);
             
-            builder.HasMany(I => I.Jobs).WithOne(X => X.Company).HasForeignKey(X => X.CompanyId).OnDelete(DeleteBehavior.NoAction);
+            builder.HasMany(I => I.Jobs).WithOne(X => X.Company).HasForeignKey(X => X.CompanyId).OnDelete(DeleteBehavior.Restrict);
         }
     }
 }
