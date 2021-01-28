@@ -38,7 +38,7 @@ namespace SocialWorld.WebApi.Controllers
         [ValidModel]
         public async Task<IActionResult> GetJobById(int id)
         {
-            return Ok(_mapper.Map<JobEditDto>(await _jobService.FindByIdAsync(id)));
+            return Ok(_mapper.Map<JobListDto>(await _jobService.FindByIdAsync(id)));
         }
 
         [HttpGet("[action]/{id}")]
