@@ -2,6 +2,8 @@
 using Microsoft.Extensions.DependencyInjection;
 using SocialWorld.Business.Concrete;
 using SocialWorld.Business.DTOs.AppUserDtos;
+using SocialWorld.Business.DTOs.CompanyDtos;
+using SocialWorld.Business.DTOs.JobDtos;
 using SocialWorld.Business.Interfaces;
 using SocialWorld.Business.ValidationRules.FluentValidation;
 using SocialWorld.DataAccess.Concrete.EntityFrameworkCore.Repositories;
@@ -47,6 +49,10 @@ namespace SocialWorld.Business.Containers.MicrosoftIoC
 
             services.AddTransient<IValidator<AppUserLoginDto>, AppUserLoginDtoValidator>();
             services.AddTransient<IValidator<AppUserAddDto>, AppUserAddDtoValidator>();
+            services.AddTransient<IValidator<CompanyAddDto>, CompanyAddDtoValidator>();
+            services.AddTransient<IValidator<CompanyEditDto>, CompanyEditDtoValidator>();
+            services.AddTransient<IValidator<JobAddDto>, JobAddDtoValidator>();
+            services.AddTransient<IValidator<JobEditDto>, JobEditDtoValidator>();
         }
     }
 }
